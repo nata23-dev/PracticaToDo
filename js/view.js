@@ -9,7 +9,7 @@ export default class View {
     this.addTodoForm = new AddTodo();
     this.modal = new Modal();
     this.filters = new Filters();
-    
+
 
     this.addTodoForm.onClick((title, description) => this.addTodo(title, description));
     this.modal.onClick((id, values) => this.editTodo(id, values));
@@ -20,8 +20,8 @@ export default class View {
     this.model = model;
   }
 
-  render() {
-    const todos = this.model.getTodos();
+  async render() {
+    const todos = await this.model.getTodos();
     todos.forEach((todo) => this.createRow(todo));
   }
 
@@ -51,27 +51,28 @@ export default class View {
     }
   }
 
-  addTodo(title, description) {
-    const todo = this.model.addTodo(title, description);
+  async addTodo(title, description) {
+    const todo = await this.model.addTodo(title, description);
     this.createRow(todo);
   }
 
-  toggleCompleted(id) {
-    this.model.toggleCompleted(id);
+  async toggleCompleted(id) {
+    await this.model.toggleCompleted(id);
   }
 
-  editTodo(id, values) {
-    this.model.editTodo(id, values);
+  async editTodo(id, values) {
+    await this.model.editTodo(id, values);
     const row = document.getElementById(id);
     row.children[0].innerText = values.title;
     row.children[1].innerText = values.description;
     row.children[2].children[0].checked = values.completed;
   }
 
-  removeTodo(id) {
-    this.model.removeTodo(id);
+  async removeTodo(id) {
+    await this.model.removeTodo(id);
     document.getElementById(id).remove();
   }
+
 
   createRow(todo) {
     const row = table.insertRow();
