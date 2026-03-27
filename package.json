@@ -1,0 +1,65 @@
+{
+  "name": "practicatodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "argparse": "^1.0.10",
+    "callsites": "^3.1.0",
+    "co": "^4.6.0",
+    "concat-map": "^0.0.1",
+    "cors": "^2.8.6",
+    "eastasianwidth": "^0.2.0",
+    "escape-string-regexp": "^2.0.0",
+    "esprima": "^4.0.1",
+    "express": "^4.22.1",
+    "firebase-admin": "^13.7.0",
+    "firebase-functions": "^7.2.2",
+    "fs.realpath": "^1.0.0",
+    "get-caller-file": "^2.0.5",
+    "has-flag": "^4.0.0",
+    "imurmurhash": "^0.1.4",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "is-arrayish": "^0.2.1",
+    "is-fullwidth-code-point": "^3.0.0",
+    "is-generator-fn": "^2.1.0",
+    "isexe": "^2.0.0",
+    "leven": "^3.1.0",
+    "mimic-fn": "^2.1.0",
+    "natural-compare": "^1.4.0",
+    "node-int64": "^0.4.0",
+    "normalize-path": "^3.0.0",
+    "once": "^1.4.0",
+    "p-locate": "^4.1.0",
+    "p-try": "^2.2.0",
+    "path-is-absolute": "^1.0.1",
+    "require-directory": "^2.1.1",
+    "shebang-regex": "^3.0.0",
+    "source-map": "^0.6.1",
+    "source-map-support": "^0.5.13",
+    "sprintf-js": "^1.0.3",
+    "strip-bom": "^4.0.0",
+    "type-detect": "^4.0.8",
+    "wrappy": "^1.0.2"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0",
+    "supertest": "^7.2.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nata23-dev/PracticaToDo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nata23-dev/PracticaToDo/issues"
+  },
+  "homepage": "https://github.com/nata23-dev/PracticaToDo#readme"
+}

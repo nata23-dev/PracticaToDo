@@ -1,0 +1,4 @@
+# Dependencias de Node
+# Las dependencias recomendablemente no se suben
+node_modules/
+dist/

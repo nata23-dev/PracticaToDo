@@ -126,3 +126,4 @@ app.delete('/todos/:id', async (req, res) => {
 });
 
 exports.api = functions.https.onRequest(app);
+module.exports = app; // Exporta la aplicación para pruebas
