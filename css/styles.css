@@ -1,0 +1,320 @@
+/* =============================================
+   JS Todo List — Productivity App Theme
+   Inspirado en: Minimalista moderno / verde salvia
+   Fuente: Plus Jakarta Sans + DM Mono
+   ============================================= */
+
+/* --- VARIABLES --- */
+:root {
+  --bg-outer:     #c8d5c0;   /* verde salvia del fondo exterior */
+  --bg-main:      #f0eeea;   /* fondo del área principal */
+  --sidebar-bg:   #ffffff;
+  --surface:      #ffffff;
+  --surface2:     #f7f6f3;
+  --border:       #e8e4dd;
+  --border2:      #dcd7ce;
+  --accent:       #e8b84b;   /* amarillo mostaza del botón save */
+  --accent-hover: #d4a438;
+  --green:        #5a8a5e;
+  --green-soft:   #e8f0e9;
+  --text:         #1a1a1a;
+  --text-mid:     #555;
+  --text-muted:   #999;
+  --danger:       #c0392b;
+  --danger-soft:  #fdecea;
+  --radius-sm:    6px;
+  --radius:       10px;
+  --radius-lg:    16px;
+  --sans:         'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono:         'DM Mono', monospace;
+  --shadow-sm:    0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md:    0 4px 20px rgba(0,0,0,0.08);
+  --transition:   0.16s ease;
+}
+
+/* --- RESET --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  font-family: var(--sans);
+  background-color: var(--bg-outer);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =============================================
+   SIDEBAR
+   ============================================= */
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.brand-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.sidebar-nav { flex: 1; padding: 0 0.75rem; }
+
+.sidebar-section-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  position: relative;
+}
+
+.sidebar-item:hover { background: var(--surface2); color: var(--text); }
+
+.sidebar-item.active {
+  background: var(--green-soft);
+  color: var(--green);
+  font-weight: 600;
+}
+
+.sidebar-count {
+  margin-left: auto;
+  background: var(--bg-outer);
+  color: var(--text-mid);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+}
+
+.sidebar-item.active .sidebar-count {
+  background: var(--green);
+  color: #fff;
+}
+
+.sidebar-filter-item {
+  list-style: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+
+.sidebar-filter-item:hover { background: var(--surface2); }
+
+.sidebar-filter-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.83rem;
+  color: var(--text-mid);
+  cursor: pointer;
+  margin: 0;
+  font-weight: 500;
+}
+
+.sidebar-filter-item input[type="radio"] {
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+.sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.75rem;
+}
+
+.sidebar-search i { color: var(--text-muted); font-size: 0.75rem; flex-shrink: 0; }
+
+.sidebar-search input {
+  border: none;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--text);
+  outline: none;
+  width: 100%;
+}
+
+.sidebar-search input::placeholder { color: var(--text-muted); }
+
+.sidebar-footer {
+  padding: 1rem 1.25rem 0;
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.sidebar-footer:hover { color: var(--text); }
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+.main-content {
+  flex: 1;
+  background: var(--bg-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2.5rem 3rem;
+  overflow-y: auto;
+}
+
+/* --- TOPBAR --- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.topbar-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.topbar-count {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* --- ADD TASK --- */
+.add-task-row { margin-bottom: 1.5rem; }
+
+.add-task-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.add-task-fields {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr auto;
+  gap: 0.85rem;
+  align-items: end;
+}
+
+.field-group { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.field-label {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.task-input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  padding: 0.6rem 0.9rem;
+  outline: none;
+  width: 100%;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.task-input:focus {
+  border-color: var(--green);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(90,138,94,0.12);
+}
+
+.task-input::placeholder { color: var(--text-muted); }
+
+textarea.task-input { resize: vertical; min-height: 75px; }
+
+.btn-add-task {
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.62rem 1.2rem;
+  cursor: pointer;
+  white-space: nowrap;
+  height: fit-content;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 8px rgba(232,184,75,0.35);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
